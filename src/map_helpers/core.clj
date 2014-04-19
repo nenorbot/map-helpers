@@ -1,7 +1,7 @@
 (ns map-helpers.core)
 
 (defn transitive-map
-  "Creates a map that is the transitive product of the maps from right to left.
+  "Creates a map that is the transitive product of the maps from left to right.
   (transitive-map {:John :Mary} {:Mary :James} {:James :Jack}) => {:John :Jack}"
   [& maps]
   (let [f (apply comp (reverse maps))
