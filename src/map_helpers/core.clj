@@ -6,7 +6,7 @@
   [& maps]
   (let [f (apply comp (reverse maps))
         keys (keys (first maps))]
-    (into {} (map (fn [k] [k (f k)]) keys))))
+    (zipmap keys (map f keys))))
 
 (defn merge-with-keys
   "Merges the maps using the key-to-fn map merge functions.
