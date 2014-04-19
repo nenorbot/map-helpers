@@ -1,14 +1,9 @@
 # map-helpers
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
+A small Clojure library providing functions for manipulating Clojure maps
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License, the same as Clojure.
