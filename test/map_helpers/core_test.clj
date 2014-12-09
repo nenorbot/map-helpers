@@ -20,3 +20,11 @@
 (deftest filter-keys-test
   (let [evens-map (filter-keys {0 0 1 1 2 2 3 3} even?)]
     (is (= evens-map {0 0 2 2}))))
+
+(deftest product-test
+  (let [p (product {:a [1 2] :b [3 4] :c [5]})]
+    (is (= p
+           '({:a 1 :b 3 :c 5}
+             {:a 1 :b 4 :c 5}
+             {:a 2 :b 3 :c 5}
+             {:a 2 :b 4 :c 5})))))

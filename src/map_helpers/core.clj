@@ -1,4 +1,5 @@
-(ns map-helpers.core)
+(ns map-helpers.core
+  (:require [clojure.math.combinatorics :as combi]))
 
 (defn transitive-map
   "Creates a map that is the transitive product of the maps from left to right.
@@ -22,3 +23,15 @@
   (filter-keys {0 :0 1 :1 2 :2) even?) => {0 :0 2 :2}"
   [map f]
   (select-keys map (filter f (keys map))))
+
+(defn product
+  "Given a map mapping keys to collections, returns a new lazy sequence of
+  maps, each containing the different cartesin products between said
+  keys to the values in the collections.
+  (product {:a [1 2] :b [3 4]}) => ({:a 1, :b 3},
+  {:a 1, :b 4}, {:a 2 :b 3}, {:a 2 :b 4})"
+  [m]
+  (let [keys (keys m)
+        products (apply combi/cartesian-product
+                        (map m keys))]
+    (map #(zipmap keys %) products)))
