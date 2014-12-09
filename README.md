@@ -17,6 +17,9 @@ Examples:
 
 	; filter map according to keys:
 	(helpers/filter-keys {0 "foo" 1 "bar" 2 "baz"} even?) => {0 "foo" 2 "baz"}
+
+	; given a map whose values are collections, return a sequence of maps, each a cartesian product
+	(helpers/product {:a [1 2] :b [3 4]}) => ({:a 1 :b 3}, {:a 1 :b 4}, {:a 2 :b 3}, {:a 2 :b 4})
 ## License
 
 Copyright © 2014
